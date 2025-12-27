@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Firebase Basics</title>
+
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-auth-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore-compat.js"></script>
+
+
+  <script type="module" src="config/firebaseConfig.js"></script>
+  <!-- Firebase SDKs -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-app.js";
+    import { getAuth } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-auth.js";
+    import { getFirestore } from "https://www.gstatic.com/firebasejs/12.7.0/firebase-firestore.js";
+
+
+
+    firebase.initializeApp(firebaseConfig);
+    const app = initializeApp(window.firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+  </script>
+
+
+  <!-- Faker.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Faker/3.1.0/faker.min.js"
+    integrity="sha512-/seDHxVfh1NvFUscAj8GsHQVZJvr2jjAoYsNL7As2FCaFHUHYIarl3sRCvVlFgyouVNiRgHIebyLKjpgd1SLDw=="
+    crossorigin="anonymous"></script>
+
+  <!-- App JS -->
+  <script type="module" src="app.js"></script>
+
+
+
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+  <!-- Optional: Google Fonts for modern look -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+
+</head>
+
+<body class="container mt-5">
+
+  <h1>My Awesome App 🔥</h1>
+
+  <!-- Signed Out -->
+  <section id="whenSignedOut" class="text-center">
+    <button id="signInBtn" class="btn btn-primary btn-lg">Sign in with Google</button>
+  </section>
+
+  <!-- Signed In -->
+  <section id="whenSignedIn" hidden>
+    <div id="userDetails" class="text-center"></div>
+    <div class="text-center">
+      <button id="signOutBtn" class="btn btn-danger btn-lg">Sign Out</button>
+    </div>
+  </section>
+
+  <hr>
+
+  <!-- Firestore Things -->
+  <section>
+    <h2 class="mb-4 text-center">My Firestore Things</h2>
+    <ul id="thingsList" class="list-group mb-3"></ul>
+    <div class="text-center">
+      <button id="createThing" class="btn btn-success btn-lg">Create Random Thing</button>
+    </div>
+  </section>
+
+</body>
+
+
+</body>
+
+</html>
